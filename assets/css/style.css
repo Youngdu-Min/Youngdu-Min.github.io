@@ -1,5 +1,5 @@
 body {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Inconsolata', 'Nanum Gothic', monospace;
     color: #D5CED9;
     background-color: #1d212b
 }
@@ -19,11 +19,18 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Raleway", sans-serif
+    font-family: "Raleway", "Nanum Gothic", sans-serif
 }
 
 pre {
     margin: 0
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", "Nanum Gothic Coding", monospace
 }
 
 .violet {
@@ -139,7 +146,7 @@ pre {
     font-weight: 600;
     -moz-text-align-last: center;
     text-align-last: center;
-    font-family: "Poppins", sans-serif
+    font-family: "Poppins", "Nanum Gothic", sans-serif
 }
 
 #header .profile h1 a,
@@ -292,6 +299,10 @@ html[lang="ko"] .en-only {
     display: none
 }
 
+html[lang="ko"] body {
+    word-break: keep-all
+}
+
 .mobile-nav-active #header {
     left: 0
 }
@@ -326,7 +337,7 @@ html[lang="ko"] .en-only {
 
 #hero h1 {
     margin: 0 0 10px 0;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Inconsolata', 'Nanum Gothic Coding', monospace;
     font-size: 64px;
     font-weight: 700;
     line-height: 56px;
@@ -335,7 +346,7 @@ html[lang="ko"] .en-only {
 
 #hero h2 {
     margin: 0 0 10px 0;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Inconsolata', 'Nanum Gothic Coding', monospace;
     font-size: 32px;
     font-weight: 500;
     line-height: 24px;
@@ -346,7 +357,7 @@ html[lang="ko"] .en-only {
     color: #D5CED9;
     margin-bottom: 50px;
     font-size: 26px;
-    font-family: 'Inconsolata', monospace
+    font-family: 'Inconsolata', 'Nanum Gothic Coding', monospace
 }
 
 #hero p span {
@@ -517,7 +528,7 @@ section {
 .facts .count-box p {
     padding: 15px 0 0 0;
     margin: 0 0 0 60px;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Inconsolata', 'Nanum Gothic', monospace;
     font-size: 16px;
     color: #D5CED9
 }
@@ -528,7 +539,7 @@ section {
     margin-top: 20px;
     color: #0BE8C6;
     font-size: 15px;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Inconsolata', 'Nanum Gothic', monospace;
     transition: ease-in-out 0.3s
 }
 
@@ -549,7 +560,7 @@ section {
     font-size: 14px;
     display: block;
     font-weight: 600;
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", "Nanum Gothic", sans-serif;
     color: #D5CED9
 }
 
@@ -573,10 +584,10 @@ section {
     text-align: center;
     font-weight: bold;
     color: #37b3ed;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Inconsolata', 'Nanum Gothic', monospace;
 }
 .skills-content li{
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", "Nanum Gothic", sans-serif;
     font-weight: 400;
 }
 .skills-content i{
@@ -595,7 +606,7 @@ section {
         font-size: 12px;
         display: block;
         font-weight: 600;
-        font-family: "Poppins", sans-serif;
+        font-family: "Poppins", "Nanum Gothic", sans-serif;
         color: #D5CED9
     }
 }
@@ -620,7 +631,7 @@ section {
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", "Nanum Gothic", sans-serif;
     color: #FFDA4C;
     margin-bottom: 10px
 }
@@ -669,7 +680,7 @@ section {
     font-weight: 600;
     padding-top: 10px;
     letter-spacing: 1px;
-    font-family: 'Inconsolata', monospace
+    font-family: 'Inconsolata', 'Nanum Gothic', monospace
 }
 
 .portfolio h5 {
@@ -678,7 +689,7 @@ section {
     font-weight: 700;
     background: #D5CED9;
     color: #191C24;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Inconsolata', 'Nanum Gothic', monospace;
     letter-spacing: 1px;
     display: inline-block
 }
