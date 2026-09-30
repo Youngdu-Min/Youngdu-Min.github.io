@@ -249,6 +249,49 @@ pre {
     overflow: hidden
 }
 
+.lang-switch {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9998;
+    display: flex;
+    gap: 4px
+}
+
+@media (max-width:1199px) {
+    .lang-switch {
+        right: 55px
+    }
+}
+
+.lang-btn {
+    background: #191C24;
+    border: 1px solid rgba(255, 255, 255, .2);
+    color: rgba(255, 255, 255, .5);
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    cursor: pointer;
+    outline: none !important;
+    transition: all .2s ease
+}
+
+.lang-btn:hover {
+    border-color: rgba(255, 255, 255, .5);
+    color: rgba(255, 255, 255, .85)
+}
+
+.lang-btn.active {
+    border-color: #A74DED;
+    color: #fff
+}
+
+html[lang="ko"] .en-only {
+    display: none
+}
+
 .mobile-nav-active #header {
     left: 0
 }

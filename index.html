@@ -62,14 +62,20 @@
     <!-- ======= Mobile nav toggle button ======= -->
     <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
+    <!-- ======= Language switch ======= -->
+    <div class="lang-switch">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="ko">KO</button>
+    </div>
+
     <!-- ======= Header ======= -->
     <header id="header">
         <div class="d-flex flex-column">
 
             <div class="profile">
                 <img src="assets/img/profile_img.png" alt="" class="img-fluid rounded-circle">
-                <h1 class="text-light"><a href="index.html">Youngdu</a></h1>
-                <h1 class="text-light"><a href="index.html">Min</a></h1>
+                <h1 class="text-light"><a href="index.html" data-i18n="profile.name">Youngdu</a></h1>
+                <h1 class="text-light en-only"><a href="index.html">Min</a></h1>
                 <div class="social-links mt-3 text-center">
                     <a href="https://github.com/Youngdu-Min" target="_blank" class="github"><i class="bx bxl-github"></i></a>
                     <a href="https://www.linkedin.com/in/youngdu-min-985795187/" target="_blank" class="linkedin">
@@ -81,16 +87,16 @@
 
             <nav class="nav-menu">
                 <ul>
-                    <li class="active"><a href="#hero"><i class="bx bx-home"></i> <span>Home</span></a></li>
-                    <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
-                    <li><a href="#skills"><i class="bx bx-code"></i> <span>Skills</span></a></li>
-                    <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-                    <li><a href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
-                    <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
+                    <li class="active"><a href="#hero"><i class="bx bx-home"></i> <span data-i18n="nav.home">Home</span></a></li>
+                    <li><a href="#about"><i class="bx bx-user"></i> <span data-i18n="nav.about">About</span></a></li>
+                    <li><a href="#skills"><i class="bx bx-code"></i> <span data-i18n="nav.skills">Skills</span></a></li>
+                    <li><a href="#resume"><i class="bx bx-file-blank"></i> <span data-i18n="nav.resume">Resume</span></a></li>
+                    <li><a href="#portfolio"><i class="bx bx-book-content"></i> <span data-i18n="nav.portfolio">Portfolio</span></a></li>
+                    <li><a href="#contact"><i class="bx bx-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
                     <li>
                         <a href="assets/other/Youngdu_Min_Resume.docx">
-                            <i class="bx bx-file"></i> Download resume
-                            file
+                            <i class="bx bx-file"></i> <span data-i18n="nav.download">Download resume
+                            file</span>
                         </a>
                     </li>
                 </ul>
@@ -159,7 +165,7 @@
 
                 <div class="section-title">
                     <h2>/* ------------------------------------- </h2>
-                    <h2>About</h2>
+                    <h2 data-i18n="about.title">About</h2>
                     <h2>---------------------------------------- */</h2>
                 </div>
 
@@ -167,7 +173,7 @@
 
                     <div class="col-lg-8 pt-4 pt-lg-0 content">
                         <h3>
-                            <pre><code class="c#">string Title = "Unity game developer";</code></pre>
+                            <pre><code class="c#" data-i18n-code>string Title = "Unity game developer";</code></pre>
                         </h3>
 
                         <h3 style="height: 55px;">
@@ -179,7 +185,7 @@
                         </h3>
                         <div class="tab">
                             <h3>
-                                <pre><code>
+                                <pre><code data-i18n-code>
 
                   string FullName = "Youngdu Min";
                   
@@ -199,9 +205,9 @@
 
                         <br>
                         <h3>
-                            <span class="yellow">About myself</span>
+                            <span class="yellow" data-i18n="about.heading">About myself</span>
                         </h3>
-                        <p>
+                        <p data-i18n="about.desc">
                             Unity Developer with 3 years of experience in game development and multi-platform(WebGL, iOS, Android)  delivery. Shipped a Steam title with FSM-based AI systems, and contributed to 5+ released projects across various genres.
                         </p>
                     </div>
@@ -216,16 +222,16 @@
 
                 <div class="section-title">
                     <h2>/* ------------------------------------- </h2>
-                    <h2>Achievements</h2> <i class="icofont-medal"></i>
+                    <h2 data-i18n="facts.title">Achievements</h2> <i class="icofont-medal"></i>
                     <h2>---------------------------------------- */</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-7 pt-4 pt-lg-0 content">
                         <div class="container">
-                            <h1> <span class="green">2025 Korea Quality Satisfaction Awards (Education - Elementary Math)</span> </h1>
-                            <h3> <span class="yellow"><b>Prize:</b></span> <strong class="blue">1st place</strong>.</h3>
-                            <h4><b>Toctoc Math</b> - math education app.</h4>
-                            <p>
+                            <h1> <span class="green" data-i18n="facts.kqs.title">2025 Korea Quality Satisfaction Awards (Education - Elementary Math)</span> </h1>
+                            <h3> <span class="yellow"><b data-i18n="facts.prize">Prize:</b></span> <strong class="blue" data-i18n="facts.kqs.place">1st place</strong>.</h3>
+                            <h4 data-i18n="facts.kqs.project"><b>Toctoc Math</b> - math education app.</h4>
+                            <p data-i18n="facts.kqs.desc">
                                 Contributed to achieving high quality rating in the EdTech sector by architecting and refactoring core systems for "ToctocMath," ensuring high performance and stability in a live-service environment.
                             </p>
                         </div>
@@ -239,10 +245,10 @@
                 <div class="row">
                     <div class="col-lg-7 pt-4 pt-lg-0 content">
                         <div class="container">
-                            <h1> <span class="green">SBCF(Seoul Book & Contents Fair) 2021 in Game Category</span> </h1>
-                            <h3> <span class="yellow"><b>Prize:</b></span> <strong class="blue">2th place</strong>.</h3>
-                            <h4><b>Keyboard Invader</b> - 2d shooter game.</h4>
-                            <p>
+                            <h1> <span class="green" data-i18n="facts.sbcf.title">SBCF(Seoul Book & Contents Fair) 2021 in Game Category</span> </h1>
+                            <h3> <span class="yellow"><b data-i18n="facts.prize">Prize:</b></span> <strong class="blue" data-i18n="facts.sbcf.place">2th place</strong>.</h3>
+                            <h4 data-i18n="facts.sbcf.project"><b>Keyboard Invader</b> - 2d shooter game.</h4>
+                            <p data-i18n="facts.sbcf.desc">
                                 Completed the programming part on my own over three weeks. It was a fun experience.
                             </p>
                         </div>
@@ -262,51 +268,51 @@
 
                 <div class="section-title">
                     <h2>/* ------------------------------------- </h2>
-                    <h2>Skills</h2>
+                    <h2 data-i18n="skills.title">Skills</h2>
                     <h2>---------------------------------------- */</h2>
                 </div>
 
                 <div class="row skills-content">
                     <div class="col-lg-6">
                         <i class="icofont-code"></i>
-                        <h4>General:</h4>
+                        <h4 data-i18n="skills.general">General:</h4>
                         <ul>
                             <li>C#</li>
                             <li>Unity 3D</li>
                             <li>Git</li>
                             <li>iOS, Android, WebGL, Windows</li>
-                            <li>Unit Tests</li>
+                            <li data-i18n="skills.unitTests">Unit Tests</li>
                             <li>JSON, REST API</li>
-                            <li>Google play market and Apple store publishing</li>
-                            <li>Steam publishing</li>
-                            <li>Multithreading</li>
+                            <li data-i18n="skills.storePublishing">Google play market and Apple store publishing</li>
+                            <li data-i18n="skills.steamPublishing">Steam publishing</li>
+                            <li data-i18n="skills.multithreading">Multithreading</li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
                         <i class="icofont-cube"></i>
                         <h4>Unity:</h4>
                         <ul>
-                            <li>Unity lifecycle</li>
+                            <li data-i18n="skills.lifecycle">Unity lifecycle</li>
                             <li>Scriptable object</li>
-                            <li>Euler angles, Gimbal lock</li>
-                            <li>Asset bundles and addressables</li>
-                            <li>Unity profiler</li>
+                            <li data-i18n="skills.euler">Euler angles, Gimbal lock</li>
+                            <li data-i18n="skills.assetBundles">Asset bundles and addressables</li>
+                            <li data-i18n="skills.profiler">Unity profiler</li>
                             <li>Timeline</li>
                             <li>UGUI</li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
                         <i class="icofont-court"></i>
-                        <h4>Architecture:</h4>
+                        <h4 data-i18n="skills.architecture">Architecture:</h4>
                         <ul>
                             <li>SOLID, OOP, KISS</li>
-                            <li>Singleton and its cons</li>
-                            <li>Factory, Finite state machine, MVC, Observer, Strategy</li>
+                            <li data-i18n="skills.singleton">Singleton and its cons</li>
+                            <li data-i18n="skills.patterns">Factory, Finite state machine, MVC, Observer, Strategy</li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
                         <i class="icofont-dashboard-web"></i>
-                        <h4>SDKs and Assets:</h4>
+                        <h4 data-i18n="skills.sdks">SDKs and Assets:</h4>
                         <ul>
                             <li>DOTween</li>
                             <li>Unitask</li>
@@ -400,20 +406,32 @@
 
                 <div class="section-title">
                     <h2>/* ------------------------------------- </h2>
-                    <h2>Resume</h2>
+                    <h2 data-i18n="resume.title">Resume</h2>
                     <h2>---------------------------------------- */</h2>
-                    <p>Overview of my life path that I took to get here.</p>
+                    <p data-i18n="resume.subtitle">Overview of my life path that I took to get here.</p>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-6">
-                        <h3 class="resume-title">Certification</h3>
+                        <h3 class="resume-title" data-i18n="resume.certification">Certification</h3>
+                        <div class="resume-item">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <h4 data-i18n="resume.eip.name">Engineer Information Processing</h4>
+                                    <h5>2026.09.11</h5>
+                                    <p><em data-i18n="resume.eip.issuer">HRD Korea (Human Resources Development Service of Korea)</em></p>
+                                    <p data-i18n="resume.eip.desc">
+                                        National technical qualification covering software design and development, databases, programming languages, and information system management
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="resume-item">
                             <div class="row">
                                 <div class="col-lg-9">
                                     <h4>ISTQB CTFL</h4>
                                     <p><em>ISTQB</em></p>
-                                    <p>
+                                    <p data-i18n="resume.istqb.desc">
                                         Demonstrated foundational knowledge in software testing methodologies and quality assurance processes
                                     </p>
                                 </div>
@@ -422,14 +440,14 @@
                         </div>
 
 
-                        <h3 class="resume-title">Education</h3>
+                        <h3 class="resume-title" data-i18n="resume.education">Education</h3>
                         <div class="resume-item">
                             <div class="row">
                                 <div class="col-lg-9">
-                                    <h4>Bachelor of Computer Science</h4>
-                                    <h5>2025 - Present</h5>
-                                    <p><em>Korea National Open University</em></p>
-                                    <p>
+                                    <h4 data-i18n="resume.knou.degree">Bachelor of Computer Science</h4>
+                                    <h5 data-i18n="resume.knou.period">2025 - Present</h5>
+                                    <p><em data-i18n="resume.knou.school">Korea National Open University</em></p>
+                                    <p data-i18n="resume.knou.desc">
                                         Bachelor of Science Degree in Computer Science.
                                     </p>
                                 </div>
@@ -439,39 +457,32 @@
                         <div class="resume-item">
                             <div class="row">
                                 <div class="col-lg-9">
-                                    <h4>Associate Degree, Major in Game Contents</h4>
+                                    <h4 data-i18n="resume.jangan.degree">Associate Degree, Major in Game Contents</h4>
                                     <h5>2019 - 2022</h5>
-                                    <p><em>Jangan University</em></p>
-                                    <p>Associate degree in Game Contents.</p>
+                                    <p><em data-i18n="resume.jangan.school">Jangan University</em></p>
+                                    <p data-i18n="resume.jangan.desc">Associate degree in Game Contents.</p>
                                 </div>
                                 <div class="col-lg-3"><img src="assets/img/icons/JanganUniversity.png" class="img-fluid" alt=""></div>
                             </div>
-                        </div>
-                        <div style="text-align: center; ">
-                            <div class="col-lg-3" data-iframe-width="250" data-iframe-height="270"
-                                 data-share-badge-id="5652425b-c8af-4841-960c-7ed6ce3aa9fb"
-                                 data-share-badge-host="https://www.credly.com"></div>
-                            <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-                            <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
                         </div>
 
 
 
                     </div>
                     <div class="col-lg-6">
-                        <h3 class="resume-title">Professional Experience</h3>
+                        <h3 class="resume-title" data-i18n="resume.experience">Professional Experience</h3>
                         <div class="resume-item">
                             <div class="row">
                                 <div class="col-lg-9">
-                                    <h4>Unity Developer</h4>
-                                    <h5>3 years</h5>
-                                    <p><em>Cemware</em></p>
+                                    <h4 data-i18n="resume.cemware.role">Unity Developer</h4>
+                                    <h5 data-i18n="resume.cemware.period">3 years</h5>
+                                    <p><em data-i18n="resume.cemware.company">Cemware</em></p>
                                     <ul>
-                                        <li>Enhanced product scalability and user reach by reducing application size and optimizing performance, supporting a 167% YoY growth in the user base.</li>
-                                        <li>Boosted productivity by developing custom Unity Editor tools to automate repetitive manual tasks.</li>
-                                        <li>Improved system maintainability and scalability by refactoring legacy code into modular, reusable core components.</li>
-                                        <li>Spearheaded multi-platform deployment and maintenance for WebGL, iOS, and Android platforms.</li>
-                                        <li>Developed AR/VR experiences using AR Foundation and MRTK2 across interactive simulation experiences.</li>
+                                        <li data-i18n="resume.cemware.item1">Enhanced product scalability and user reach by reducing application size and optimizing performance, supporting a 167% YoY growth in the user base.</li>
+                                        <li data-i18n="resume.cemware.item2">Boosted productivity by developing custom Unity Editor tools to automate repetitive manual tasks.</li>
+                                        <li data-i18n="resume.cemware.item3">Improved system maintainability and scalability by refactoring legacy code into modular, reusable core components.</li>
+                                        <li data-i18n="resume.cemware.item4">Spearheaded multi-platform deployment and maintenance for WebGL, iOS, and Android platforms.</li>
+                                        <li data-i18n="resume.cemware.item5">Developed AR/VR experiences using AR Foundation and MRTK2 across interactive simulation experiences.</li>
 
                                     </ul>
                                 </div>
@@ -489,17 +500,17 @@
 
                 <div class="section-title">
                     <h2>/* ------------------------------------- </h2>
-                    <h2>Portfolio</h2>
+                    <h2 data-i18n="portfolio.title">Portfolio</h2>
                     <h2>---------------------------------------- */</h2>
-                    <p>Overview of my latest programs</p>
+                    <p data-i18n="portfolio.subtitle">Overview of my latest programs</p>
                 </div>
 
                 <!-- Filter buttons -->
                 <div class="portfolio-filters">
-                    <button class="filter-btn active" data-filter="*">All</button>
-                    <button class="filter-btn" data-filter=".filter-game">Game</button>
-                    <button class="filter-btn" data-filter=".filter-edtech">EdTech</button>
-                    <button class="filter-btn" data-filter=".filter-jam">Game Jam</button>
+                    <button class="filter-btn active" data-filter="*" data-i18n="portfolio.filter.all">All</button>
+                    <button class="filter-btn" data-filter=".filter-game" data-i18n="portfolio.filter.game">Game</button>
+                    <button class="filter-btn" data-filter=".filter-edtech" data-i18n="portfolio.filter.edtech">EdTech</button>
+                    <button class="filter-btn" data-filter=".filter-jam" data-i18n="portfolio.filter.jam">Game Jam</button>
                 </div>
                 <!-- Single isotope container -->
                 <div class="portfolio-container">
@@ -516,11 +527,11 @@
                         <div class="portfolio-description">
                             <h3>HOLLOW: COOK OFF</h3>
                             <div class="portfolio-tags">
-                                <span class="tag-badge tag-game"><i class="bx bx-joystick"></i> Game</span>
+                                <span class="tag-badge tag-game" data-i18n="tag.game"><i class="bx bx-joystick"></i> Game</span>
                                 <span class="tag-badge tag-steam"><i class="bx bxl-steam"></i> Steam</span>
                             </div>
-                            <h5>2D Action Side-Scroller</h5>
-                            <p>Action side-scrolling shooter with FSM-based enemy AI and multi-phase boss. Core programmer on a team of 7. Managed full Steam release pipeline.</p>
+                            <h5 data-i18n="genre.sideScroller">2D Action Side-Scroller</h5>
+                            <p data-i18n="portfolio.hollow.desc">Action side-scrolling shooter with FSM-based enemy AI and multi-phase boss. Core programmer on a team of 7. Managed full Steam release pipeline.</p>
                         </div>
                     </div>
 
@@ -536,11 +547,11 @@
                         <div class="portfolio-description">
                             <h3>Gun Slash</h3>
                             <div class="portfolio-tags">
-                                <span class="tag-badge tag-game"><i class="bx bx-joystick"></i> Game</span>
-                                <span class="tag-badge tag-solo">Solo Dev</span>
+                                <span class="tag-badge tag-game" data-i18n="tag.game"><i class="bx bx-joystick"></i> Game</span>
+                                <span class="tag-badge tag-solo" data-i18n="tag.solo">Solo Dev</span>
                             </div>
-                            <h5>Local Multiplayer Action</h5>
-                            <p>Local multiplayer shooter supporting 4 simultaneous players with custom multi-input system and original weapon mechanics.</p>
+                            <h5 data-i18n="genre.localMulti">Local Multiplayer Action</h5>
+                            <p data-i18n="portfolio.gunSlash.desc">Local multiplayer shooter supporting 4 simultaneous players with custom multi-input system and original weapon mechanics.</p>
                         </div>
                     </div>
 
@@ -555,11 +566,11 @@
                         <div class="portfolio-description">
                             <h3>Option Adventure</h3>
                             <div class="portfolio-tags">
-                                <span class="tag-badge tag-game"><i class="bx bx-joystick"></i> Game</span>
-                                <span class="tag-badge tag-jam">Game Jam</span>
+                                <span class="tag-badge tag-game" data-i18n="tag.game"><i class="bx bx-joystick"></i> Game</span>
+                                <span class="tag-badge tag-jam" data-i18n="tag.jam">Game Jam</span>
                             </div>
-                            <h5>RPG / Platformer</h5>
-                            <p>Beaver Jam 2023 (Smilegate) — 40 hours, team of 5. Led programming as lead programmer: player controls and option-based stat system.</p>
+                            <h5 data-i18n="genre.rpgPlatformer">RPG / Platformer</h5>
+                            <p data-i18n="portfolio.optionAdventure.desc">Beaver Jam 2023 (Smilegate) — 40 hours, team of 5. Led programming as lead programmer: player controls and option-based stat system.</p>
                         </div>
                     </div>
 
@@ -575,11 +586,11 @@
                         <div class="portfolio-description">
                             <h3>Dice Knight</h3>
                             <div class="portfolio-tags">
-                                <span class="tag-badge tag-game"><i class="bx bx-joystick"></i> Game</span>
-                                <span class="tag-badge tag-jam">Game Jam</span>
+                                <span class="tag-badge tag-game" data-i18n="tag.game"><i class="bx bx-joystick"></i> Game</span>
+                                <span class="tag-badge tag-jam" data-i18n="tag.jam">Game Jam</span>
                             </div>
-                            <h5>Action</h5>
-                            <p>GMTK Game Jam 2022 — 48 hours, team of 6. Implemented enemy AI and dice-driven buff/debuff system.</p>
+                            <h5 data-i18n="genre.action">Action</h5>
+                            <p data-i18n="portfolio.diceKnight.desc">GMTK Game Jam 2022 — 48 hours, team of 6. Implemented enemy AI and dice-driven buff/debuff system.</p>
                         </div>
                     </div>
 
@@ -595,11 +606,11 @@
                         <div class="portfolio-description">
                             <h3>Keyboard Invader</h3>
                             <div class="portfolio-tags">
-                                <span class="tag-badge tag-game"><i class="bx bx-joystick"></i> Game</span>
-                                <span class="tag-badge tag-award">🏆 2nd Place SBCF 2021</span>
+                                <span class="tag-badge tag-game" data-i18n="tag.game"><i class="bx bx-joystick"></i> Game</span>
+                                <span class="tag-badge tag-award" data-i18n="tag.award.sbcf">🏆 2nd Place SBCF 2021</span>
                             </div>
-                            <h5>Shooter</h5>
-                            <p>Team of 3, lead programmer. 2D space shooter where each key fires a unique bullet. Won 2nd place at Seoul Book & Contents Fair 2021.</p>
+                            <h5 data-i18n="genre.shooter">Shooter</h5>
+                            <p data-i18n="portfolio.keyboardInvader.desc">Team of 3, lead programmer. 2D space shooter where each key fires a unique bullet. Won 2nd place at Seoul Book & Contents Fair 2021.</p>
                         </div>
                     </div>
 
@@ -615,11 +626,11 @@
                         <div class="portfolio-description">
                             <h3>Karma Defence</h3>
                             <div class="portfolio-tags">
-                                <span class="tag-badge tag-game"><i class="bx bx-joystick"></i> Game</span>
+                                <span class="tag-badge tag-game" data-i18n="tag.game"><i class="bx bx-joystick"></i> Game</span>
                                 <span class="tag-badge tag-platform">Android</span>
                             </div>
-                            <h5>Defence</h5>
-                            <p>Team of 5, sole programmer. Owned all development: unit AI, player abilities, stage quest system, object pooling, and custom Unity Editor tooling.</p>
+                            <h5 data-i18n="genre.defence">Defence</h5>
+                            <p data-i18n="portfolio.karmaDefence.desc">Team of 5, sole programmer. Owned all development: unit AI, player abilities, stage quest system, object pooling, and custom Unity Editor tooling.</p>
                         </div>
                     </div>
 
@@ -635,10 +646,10 @@
                         <div class="portfolio-description">
                             <h3>Gravity Miner</h3>
                             <div class="portfolio-tags">
-                                <span class="tag-badge tag-game"><i class="bx bx-joystick"></i> Game</span>
+                                <span class="tag-badge tag-game" data-i18n="tag.game"><i class="bx bx-joystick"></i> Game</span>
                             </div>
-                            <h5>Platformer</h5>
-                            <p>Team of 7, primary programmer. Handled the majority of development including core gameplay and physics mechanics.</p>
+                            <h5 data-i18n="genre.platformer">Platformer</h5>
+                            <p data-i18n="portfolio.gravityMiner.desc">Team of 7, primary programmer. Handled the majority of development including core gameplay and physics mechanics.</p>
                         </div>
                     </div>
 
@@ -654,11 +665,11 @@
                         <div class="portfolio-description">
                             <h3>Dungeon Keyboarder</h3>
                             <div class="portfolio-tags">
-                                <span class="tag-badge tag-game"><i class="bx bx-joystick"></i> Game</span>
-                                <span class="tag-badge tag-jam">Game Jam</span>
+                                <span class="tag-badge tag-game" data-i18n="tag.game"><i class="bx bx-joystick"></i> Game</span>
+                                <span class="tag-badge tag-jam" data-i18n="tag.jam">Game Jam</span>
                             </div>
-                            <h5>Action</h5>
-                            <p>GMTK Game Jam 2020 — 48 hours, team of 4. An early team project that sharpened my collaborative workflow and laid the foundation for future game jam work.</p>
+                            <h5 data-i18n="genre.action">Action</h5>
+                            <p data-i18n="portfolio.dungeonKeyboarder.desc">GMTK Game Jam 2020 — 48 hours, team of 4. An early team project that sharpened my collaborative workflow and laid the foundation for future game jam work.</p>
                         </div>
                     </div>
 
@@ -666,7 +677,7 @@
                     <div class="portfolio-item filter-game filter-edtech filter-jam portfolio-divider-item">
                         <div class="portfolio-divider-inner">
                             <hr class="portfolio-hr">
-                            <span class="portfolio-hr-label"><i class="bx bx-book-open"></i> Professional Work · EdTech</span>
+                            <span class="portfolio-hr-label" data-i18n="portfolio.divider"><i class="bx bx-book-open"></i> Professional Work · EdTech</span>
                             <hr class="portfolio-hr">
                         </div>
                     </div>
@@ -683,14 +694,14 @@
                         <div class="portfolio-description">
                             <h3>ToctocMath</h3>
                             <div class="portfolio-tags">
-                                <span class="tag-badge tag-edtech"><i class="bx bx-book-open"></i> EdTech</span>
-                                <span class="tag-badge tag-award">🏆 1st Place 2025 KQS</span>
+                                <span class="tag-badge tag-edtech" data-i18n="tag.edtech"><i class="bx bx-book-open"></i> EdTech</span>
+                                <span class="tag-badge tag-award" data-i18n="tag.award.kqs">🏆 1st Place 2025 KQS</span>
                                 <span class="tag-badge tag-platform">iOS</span>
                                 <span class="tag-badge tag-platform">Android</span>
                                 <span class="tag-badge tag-platform">WebGL</span>
                             </div>
-                            <h5>Math Education</h5>
-                            <p>Team of 8+, lead programmer. Architected and refactored core systems for live service — contributed to 167% YoY user growth.</p>
+                            <h5 data-i18n="genre.mathEdu">Math Education</h5>
+                            <p data-i18n="portfolio.toctoc.desc">Team of 8+, lead programmer. Architected and refactored core systems for live service — contributed to 167% YoY user growth.</p>
                         </div>
                     </div>
 
@@ -706,12 +717,12 @@
                         <div class="portfolio-description">
                             <h3>ImmersionSim</h3>
                             <div class="portfolio-tags">
-                                <span class="tag-badge tag-edtech"><i class="bx bx-book-open"></i> EdTech</span>
+                                <span class="tag-badge tag-edtech" data-i18n="tag.edtech"><i class="bx bx-book-open"></i> EdTech</span>
                                 <span class="tag-badge tag-arvr"><i class="bx bx-cube"></i> AR / VR</span>
                                 <span class="tag-badge tag-platform">WebGL</span>
                             </div>
-                            <h5>Simulation</h5>
-                            <p>Immersive simulation suite using AR Foundation and MRTK2. Developed interactive AR/VR education and simulation experiences across multiple projects.</p>
+                            <h5 data-i18n="genre.simulation">Simulation</h5>
+                            <p data-i18n="portfolio.immersionSim.desc">Immersive simulation suite using AR Foundation and MRTK2. Developed interactive AR/VR education and simulation experiences across multiple projects.</p>
             </div>
         </section><!-- End Portfolio Section -->
 
@@ -881,9 +892,9 @@
 
                 <div class="section-title">
                     <h2>/* ------------------------------------- </h2>
-                    <h2>Contact me</h2>
+                    <h2 data-i18n="contact.title">Contact me</h2>
                     <h2>---------------------------------------- */</h2>
-                    <h5>Please feel free to reach out to me for any work related purposes ;)</h5>
+                    <h5 data-i18n="contact.subtitle">Please feel free to reach out to me for any work related purposes ;)</h5>
                 </div>
 
                 <div class="row">
@@ -892,20 +903,20 @@
                         <div class="info">
                             <div class="address">
                                 <i class="icofont-google-map"></i>
-                                <h4>Location:</h4>
-                                <p>Incheon, Korea</p>
+                                <h4 data-i18n="contact.location">Location:</h4>
+                                <p data-i18n="contact.locationValue">Incheon, Korea</p>
                             </div>
 
                             <div class="email">
                                 <i class="icofont-envelope"></i>
-                                <h4>Email:</h4>
+                                <h4 data-i18n="contact.email">Email:</h4>
                                 <p>dudenx02@gmail.com</p>
                             </div>
 
                             <div class="phone">
                                 <i class="icofont-linkedin"></i>
                                 <h4>LinkedIn:</h4>
-                                <p><a href="https://www.linkedin.com/in/youngdu-min-985795187/" target="_blank" class="linkedin">Link</a></p>
+                                <p><a href="https://www.linkedin.com/in/youngdu-min-985795187/" target="_blank" class="linkedin" data-i18n="contact.link">Link</a></p>
                             </div>
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1629751.1595848452!2d126.44420605506883!3d37.07874090171217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35796f2596138247%3A0x7d37fd902cb76142!2z7J247LKc6rSR7Jet7Iuc!5e0!3m2!1sko!2skr!4v1771177655853!5m2!1sko!2skr"
                                     style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
@@ -917,36 +928,36 @@
                         <form action="https://formspree.io/f/mvzbrvab" method="post" role="form" class="php-email-form">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="name">Your Name</label>
+                                    <label for="name" data-i18n="form.name">Your Name</label>
                                     <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4"
-                                           data-msg="Please enter at least 4 chars" />
+                                           data-msg="Please enter at least 4 chars" data-i18n-msg="form.nameMsg" />
                                     <div class="validate"></div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="name">Your Email</label>
+                                    <label for="name" data-i18n="form.email">Your Email</label>
                                     <input type="email" class="form-control" name="email" id="email" data-rule="email"
-                                           data-msg="Please enter a valid email" />
+                                           data-msg="Please enter a valid email" data-i18n-msg="form.emailMsg" />
                                     <div class="validate"></div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="name">Subject</label>
+                                <label for="name" data-i18n="form.subject">Subject</label>
                                 <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4"
-                                       data-msg="Please enter at least 8 chars of subject" />
+                                       data-msg="Please enter at least 8 chars of subject" data-i18n-msg="form.subjectMsg" />
                                 <div class="validate"></div>
                             </div>
                             <div class="form-group">
-                                <label for="name">Message</label>
+                                <label for="name" data-i18n="form.message">Message</label>
                                 <textarea class="form-control" name="message" rows="10" data-rule="required"
-                                          data-msg="Please write something for me"></textarea>
+                                          data-msg="Please write something for me" data-i18n-msg="form.messageMsg"></textarea>
                                 <div class="validate"></div>
                             </div>
                             <div class="mb-3">
-                                <div class="loading">Loading</div>
+                                <div class="loading" data-i18n="form.loading">Loading</div>
                                 <div class="error-message"></div>
-                                <div class="sent-message alert ">Your message has been sent. Thank you and have a nice day!</div>
+                                <div class="sent-message alert " data-i18n="form.sent">Your message has been sent. Thank you and have a nice day!</div>
                             </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
+                            <div class="text-center"><button type="submit" data-i18n="form.send">Send Message</button></div>
                         </form>
                     </div>
                 </div>
@@ -962,8 +973,8 @@
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                Website was made by me: <span class="yellow"> <b>Youngdu Min</b> </span>
-                Originally designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                <span data-i18n="footer.madeBy">Website was made by me:</span> <span class="yellow"> <b data-i18n="footer.name">Youngdu Min</b> </span>
+                <span data-i18n="footer.designedBy">Originally designed by</span> <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
         </div>
     </footer><!-- End  Footer -->
@@ -985,16 +996,21 @@
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/js/coolBack.js"></script>
     <script src="assets/js/timecounter.js"></script>
+    <script src="assets/js/i18n.js"></script>
 
     <!-- Portfolio Filter Script -->
     <script>
         $(document).ready(function () {
 
-            // Typed.js 초기화
-            if ($('.typed').length) {
-                var typed_strings = $('.typed').data('typed-items');
+            // Typed.js 초기화 (언어 전환 시 재생성)
+            var typed = null;
+            function initTyped() {
+                if (!$('.typed').length) return;
+                if (typed) typed.destroy();
+                // .data()는 값을 캐싱하므로 언어 전환 후 갱신된 값을 읽기 위해 .attr() 사용
+                var typed_strings = $('.typed').attr('data-typed-items');
                 var typed_arr = typed_strings.split(',').map(function(s){ return s.trim(); });
-                new Typed('.typed', {
+                typed = new Typed('.typed', {
                     strings: typed_arr,
                     loop: true,
                     typeSpeed: 60,
@@ -1002,6 +1018,8 @@
                     backDelay: 1500
                 });
             }
+            initTyped();
+            $(document).on('i18n:change', initTyped);
 
             // VenoBox 초기화
             $('.venobox').venobox({
@@ -1021,6 +1039,11 @@
                 $(this).addClass('active');
                 var f = $(this).attr('data-filter');
                 $container.isotope({ filter: f });
+            });
+
+            // 언어 전환으로 카드 높이가 바뀌면 재배치
+            $(document).on('i18n:change', function () {
+                $container.isotope('layout');
             });
 
         });
