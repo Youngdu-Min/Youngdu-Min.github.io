@@ -2,6 +2,7 @@
  * EN / KO language switch
  * - [data-i18n="key"]     : innerHTML을 KO 사전 값으로 교체 (영어 원문은 DOM에서 보관)
  * - [data-i18n-msg="key"] : 폼 검증 메시지(data-msg 속성) 교체
+ * - [data-i18n-href="key"]: 링크 주소(href 속성) 교체
  * - [data-i18n-code]      : 코드 블록 문자열 값만 치환 후 highlight.js 재적용
  * - .en-only              : 한국어 모드에서 숨김 (style.css)
  * - .typed                : data-typed-items 교체 후 'i18n:change' 이벤트로 Typed.js 재생성
@@ -30,6 +31,7 @@
         'nav.portfolio': '포트폴리오',
         'nav.contact': '연락처',
         'nav.download': '이력서 다운로드',
+        'nav.downloadFile': 'assets/other/Youngdu_Min_Resume_KO.docx',
 
         'about.title': '소개',
         'about.heading': '자기소개',
@@ -145,6 +147,7 @@
 
     var textElements = document.querySelectorAll('[data-i18n]');
     var msgElements = document.querySelectorAll('[data-i18n-msg]');
+    var hrefElements = document.querySelectorAll('[data-i18n-href]');
     var codeElements = document.querySelectorAll('[data-i18n-code]');
     var typedElement = document.querySelector('.typed');
     var langButtons = document.querySelectorAll('.lang-btn');
@@ -153,6 +156,7 @@
     var enTitle = document.title;
     var enTexts = Array.prototype.map.call(textElements, function (element) { return element.innerHTML; });
     var enMsgs = Array.prototype.map.call(msgElements, function (element) { return element.getAttribute('data-msg'); });
+    var enHrefs = Array.prototype.map.call(hrefElements, function (element) { return element.getAttribute('href'); });
     var enCodes = Array.prototype.map.call(codeElements, function (element) { return element.textContent; });
     var enTypedItems = typedElement ? typedElement.getAttribute('data-typed-items') : null;
 
@@ -176,6 +180,11 @@
         msgElements.forEach(function (element, i) {
             var key = element.getAttribute('data-i18n-msg');
             element.setAttribute('data-msg', isKo && KO.hasOwnProperty(key) ? KO[key] : enMsgs[i]);
+        });
+
+        hrefElements.forEach(function (element, i) {
+            var key = element.getAttribute('data-i18n-href');
+            element.setAttribute('href', isKo && KO.hasOwnProperty(key) ? KO[key] : enHrefs[i]);
         });
 
         codeElements.forEach(function (element, i) {
