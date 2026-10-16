@@ -99,7 +99,7 @@
         'resume.cemware.role': 'Unity 개발자',
         'resume.cemware.period': '2022.08 – 2025.07 (3년)',
         'resume.cemware.company': '셈웨어 (Cemware)',
-        'resume.cemware.item1': '교사 요구에 맞춘 서비스 개선과 앱 용량·성능 최적화로 다운로드 수 전년 대비 167% 성장에 기여',
+        'resume.cemware.item1': '교사 요구에 맞춘 서비스 개선과 앱 용량·성능 최적화로 다운로드 수 전년 대비 167% 성장에 기여 (전국 약 6,900개교 사용)',
         'resume.cemware.miniGames': '캐주얼 교육 미니게임 8종 이상 신규 개발, 교육과정 개편·라이브 이슈에 맞춰 기존 미니게임 대부분 개선. 추상 클래스와 인터페이스 컴포지션 기반 공통 구조·데이터 기반 설정 설계',
         'resume.cemware.item2': '범용 슬라이싱 UI 이미지로 대체 가능한 에셋 교체, 미사용 에셋 정리, 텍스처 압축 일괄 적용 에디터 툴로 전 플랫폼 빌드 용량 1GB 이상 → 350MB 이하(약 70%) 절감',
         'resume.cemware.item3': 'WebGL 초기 로딩 메모리 절감 및 메모리 누수 해결, 학교용 크롬북·웨일북의 WebGL 로딩 실패 해결, OS 버전별 사용자 분석을 바탕으로 Android 최소 API 레벨 상향',
@@ -124,7 +124,7 @@
         'portfolio.karmaDefence.desc': '5인 팀의 단독 프로그래머로 참여했습니다(2020–2021, Google Play 출시, 서비스 종료). 유닛 AI, 플레이어 스킬, 별 보상이 있는 스테이지 퀘스트, 2배씩 동적 확장되는 다중 타입 오브젝트 풀링, 기획자용 커스텀 인스펙터를 만들었습니다.',
         'portfolio.gravityMiner.desc': '대학 7인 팀의 메인 프로그래머로 참여했습니다(2019–2020). 속도 기반 밟기 전투와 고유한 블록 기믹 등 핵심 게임플레이와 물리 대부분을 구현했습니다.',
         'portfolio.dungeonKeyboarder.desc': 'GMTK Game Jam 2020에서 4인 팀이 48시간 동안 만든 게임입니다. 씬 전환, 카메라 셰이크, 파티클을 담당했습니다.',
-        'portfolio.toctoc.desc': 'KERIS 디지털 교과서와 연계된 수학 앱으로, iOS·Android·WebGL로 서비스합니다. 개발자 8명(인턴 포함 최대 12명), 리드 프로그래머로서 캐주얼 교육 미니게임 8종 이상을 개발하고, 다운로드 수 전년 대비 167% 성장에 기여했으며, 빌드 용량을 1GB 이상에서 350MB 이하(약 70%)로 줄였습니다.',
+        'portfolio.toctoc.desc': 'KERIS 디지털 교과서와 연계된 수학 앱으로, 전국 약 6,900개교가 사용(2025.11 기준)하며 iOS·Android·WebGL로 서비스합니다. 개발자 8명(인턴 포함 최대 12명), 리드 프로그래머로서 캐주얼 교육 미니게임 8종 이상을 개발하고, 다운로드 수 전년 대비 167% 성장에 기여했으며, 빌드 용량을 1GB 이상에서 350MB 이하(약 70%)로 줄였습니다.',
         'portfolio.immersionSim.desc': 'AR Foundation, VRTK, MRTK2로 만든 몰입형 시뮬레이션 시리즈입니다. 여러 프로젝트에서 인터랙티브 AR/VR 교육·시뮬레이션 콘텐츠를 개발했고, 저장/불러오기와 UGC 지원을 위한 WebGL ↔ JavaScript 연동을 구현했습니다.',
 
         'tag.game': '<i class="bx bx-joystick"></i> 게임',
@@ -135,6 +135,7 @@
         'tag.award.kqs': '🏆 2025 한국품질만족도 1위',
         'link.featureDemo': '기능 시연',
         'link.code': '코드',
+        'link.article': '관련 기사',
 
         'genre.sideScroller': '2D 액션 횡스크롤 · 사이드 프로젝트',
         'genre.unitFramework': '재사용 가능한 유닛 프레임워크 · 2025',
