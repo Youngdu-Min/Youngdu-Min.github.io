@@ -503,6 +503,26 @@ section {
     margin-bottom: 10px
 }
 
+@media (min-width: 992px) {
+    .facts .row:not(:last-child) {
+        margin-bottom: 30px
+    }
+
+    .facts .col-lg-5 .container {
+        position: relative;
+        height: 100%
+    }
+
+    .facts .col-lg-5 img {
+        position: absolute;
+        top: 0;
+        height: calc(100% - 1rem);
+        max-width: calc(100% - 30px);
+        object-fit: contain;
+        object-position: left top
+    }
+}
+
 .facts .count-box {
     margin-top: 40px;
     padding: 30px;
