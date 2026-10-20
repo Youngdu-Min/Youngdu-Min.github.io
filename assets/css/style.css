@@ -766,6 +766,8 @@ section {
     transition: 0.3s;
     position: relative;
     overflow: hidden;
+    /* clip: 숨은 링크 바에 포커스가 가도(영상 팝업 닫힘 등) 카드 내부가 스크롤되지 않게 함 */
+    overflow: clip;
     z-index: 1
 }
 
