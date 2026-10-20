@@ -116,7 +116,7 @@
         'portfolio.filter.jam': '게임잼',
         'portfolio.divider': '<i class="bx bx-book-open"></i> 실무 프로젝트 · 에듀테크',
         'portfolio.unitSystem.desc': '팀 프로젝트(중단) 안에서 혼자 설계해 모듈로 공개했습니다. ScriptableObject 프리셋 기반의 클래스형 FSM, 부위별 피격 판정, 상태 이상, 보스 페이즈 제어, Animator 없이 동작하는 애니메이션 컨트롤러를 갖췄습니다.',
-        'portfolio.hollow.desc': 'Corgi Engine 기반 사이드 프로젝트(12개 스테이지 + 보스 스테이지 5개)입니다. 7인 팀의 리드 프로그래머로, AI Brain에 보스 페이즈 관리와 State/Decision 추적·복구 기능을 확장해 일반 적 9종과 다단계 보스 5종의 AI를 만들었습니다. 탄 패링, 그래플링 건, 한/영 현지화, Timeline 컷신을 구현하고 Steam 출시 과정 전체를 담당했습니다.',
+        'portfolio.hollow.desc': 'Corgi Engine 기반 사이드 프로젝트(12개 스테이지 + 보스 스테이지 5개)입니다. 7인 팀에서 프로그래밍 전반을 담당하며, AI Brain에 보스 페이즈 관리와 State/Decision 추적·복구 기능을 확장해 일반 적 9종과 다단계 보스 5종의 AI를 만들었습니다. 탄 패링, 그래플링 건, 한/영 현지화, Timeline 컷신을 구현하고 Steam 출시 과정 전체를 담당했습니다.',
         'portfolio.gunSlash.desc': 'Corgi Engine 기반의 최대 4인 로컬 멀티플레이 슈터입니다. 공유 입력을 키보드 2개 + 게임패드 4개로 분리하고, 플레이어와 입력 장치를 고르는 경기 전 로비를 추가했습니다.',
         'portfolio.optionAdventure.desc': 'Beaver Jam 2023 (Smilegate)에서 5인 팀이 40시간 동안 만든 게임입니다. 리드 프로그래머로서 플레이어 조작과 옵션에 따라 달라지는 스탯 시스템을 구현했습니다.',
         'portfolio.diceKnight.desc': 'GMTK Game Jam 2022에서 6인 팀이 48시간 동안 만든 게임입니다. 적 AI와 주사위 결과에 따라 버프·디버프가 걸리는 시스템을 구현했습니다.',
