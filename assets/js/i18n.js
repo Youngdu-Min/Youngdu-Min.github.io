@@ -35,7 +35,7 @@
 
         'about.title': '소개',
         'about.heading': '자기소개',
-        'about.desc': '교육 앱을 iOS·Android·WebGL로 3년간 라이브 운영하며 최적화와 배포를 맡고, 사이드 프로젝트로 Steam 게임을 출시한 Unity 클라이언트 프로그래머입니다.',
+        'about.desc': '3년 경력의 Unity 클라이언트 프로그래머입니다. 그중 약 2년간 교육 앱을 iOS·Android·WebGL로 라이브 운영하며 최적화와 배포를 맡았고, 사이드 프로젝트로 Steam 게임을 출시했습니다.',
 
         'facts.title': '수상 경력',
         'facts.prize': '수상:',
