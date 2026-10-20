@@ -115,6 +115,7 @@
         'portfolio.filter.edtech': '에듀테크',
         'portfolio.filter.jam': '게임잼',
         'portfolio.divider': '<i class="bx bx-book-open"></i> 실무 프로젝트 · 에듀테크',
+        'portfolio.projectFSMonsterAI.desc': '5인 팀의 프로그래머로 참여한 2D 탑다운 게임 프로토타입의 몬스터 AI입니다. 상태를 컴포넌트로 붙이는 모듈형 FSM에, 인스펙터에서 ‘조건 → 목표 상태’ 규칙을 정의하는 데이터 기반 전이, 시야·거리 감지, A* 경로 탐색, 비살상 제압(안정화) 시스템을 구현했습니다. 몬스터 3종은 같은 컴포넌트를 쓰고 전이 규칙만 다릅니다.',
         'portfolio.unitSystem.desc': '팀 프로젝트(중단) 안에서 혼자 설계해 모듈로 공개했습니다. ScriptableObject 프리셋 기반의 클래스형 FSM, 부위별 피격 판정, 상태 이상, 보스 페이즈 제어, Animator 없이 동작하는 애니메이션 컨트롤러를 갖췄습니다.',
         'portfolio.hollow.desc': 'Corgi Engine 기반 사이드 프로젝트(12개 스테이지 + 보스 스테이지 5개)입니다. 7인 팀에서 프로그래밍 전반을 담당하며, AI Brain에 보스 페이즈 관리와 State/Decision 추적·복구 기능을 확장해 일반 적 9종과 다단계 보스 5종의 AI를 만들었습니다. 탄 패링, 그래플링 건, 한/영 현지화, Timeline 컷신을 구현하고 Steam 출시 과정 전체를 담당했습니다.',
         'portfolio.gunSlash.desc': 'Corgi Engine 기반의 최대 4인 로컬 멀티플레이 슈터입니다. 공유 입력을 키보드 2개 + 게임패드 4개로 분리하고, 플레이어와 입력 장치를 고르는 경기 전 로비를 추가했습니다.',
@@ -137,6 +138,7 @@
         'link.article': '관련 기사',
 
         'genre.sideScroller': '2D 액션 횡스크롤 · 사이드 프로젝트',
+        'genre.projectFSMonsterAI': '몬스터 AI · 팀 프로젝트 · 2026',
         'genre.unitFramework': '재사용 가능한 유닛 프레임워크 · 2025',
         'genre.localMulti': '로컬 멀티플레이 액션',
         'genre.rpgPlatformer': 'RPG / 플랫포머',
