@@ -835,8 +835,11 @@ section {
 }
 
 .portfolio .portfolio-wrap .portfolio-links .link-dropdown-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    height: 100%;
     padding: 0;
     border: 0;
     color: #fff;
@@ -845,6 +848,17 @@ section {
     background: #96E072;
     cursor: pointer;
     transition: 0.3s
+}
+
+.portfolio .portfolio-wrap .portfolio-links .link-dropdown-caret {
+    margin-left: 4px;
+    font-size: 20px;
+    transition: transform 0.2s
+}
+
+/* 메뉴가 위로 열리므로 닫힘은 위쪽, 열림은 아래쪽 화살표 */
+.portfolio .portfolio-wrap .portfolio-links .link-dropdown.open .link-dropdown-caret {
+    transform: rotate(180deg)
 }
 
 .portfolio .portfolio-wrap .portfolio-links .link-dropdown-toggle:hover,
@@ -1327,4 +1341,17 @@ section {
         width: auto;
         padding-right: 20px 15px
     }
+}
+
+/* 사이트의 Boxicons CSS에 빠진 아이콘 정의 (글리프는 boxicons 폰트에 포함) */
+.bx-chevron-up:before {
+    content: "\ea24"
+}
+
+.bxl-play-store:before {
+    content: "\e94b"
+}
+
+.bx-globe:before {
+    content: "\eac4"
 }
