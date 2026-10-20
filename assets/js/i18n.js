@@ -133,7 +133,6 @@
         'tag.edtech': '<i class="bx bx-book-open"></i> 에듀테크',
         'tag.award.sbcf': '🏆 SBCF 2021 2위 (우수상)',
         'tag.award.kqs': '🏆 2025 한국품질만족도 1위',
-        'link.featureDemo': '기능 시연',
         'link.code': '코드',
         'link.article': '관련 기사',
 
