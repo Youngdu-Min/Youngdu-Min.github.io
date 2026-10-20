@@ -824,6 +824,84 @@ section {
     bottom: 0
 }
 
+/* 링크가 여러 개인 항목: 링크 아이콘을 누르면 위로 열리는 메뉴 */
+.portfolio .portfolio-wrap .portfolio-links .link-dropdown {
+    position: relative;
+    width: 50%
+}
+
+.portfolio .portfolio-wrap .portfolio-links a+.link-dropdown {
+    border-left: 1px solid #4cc90e
+}
+
+.portfolio .portfolio-wrap .portfolio-links .link-dropdown-toggle {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    color: #fff;
+    font-size: 28px;
+    line-height: inherit;
+    background: #96E072;
+    cursor: pointer;
+    transition: 0.3s
+}
+
+.portfolio .portfolio-wrap .portfolio-links .link-dropdown-toggle:hover,
+.portfolio .portfolio-wrap .portfolio-links .link-dropdown.open .link-dropdown-toggle {
+    background: #74d145
+}
+
+.portfolio .portfolio-wrap .portfolio-links .link-dropdown-menu {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 140px;
+    margin: 0 0 8px;
+    padding: 6px 0;
+    list-style: none;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .18)
+}
+
+.portfolio .portfolio-wrap .portfolio-links .link-dropdown.open .link-dropdown-menu {
+    display: block
+}
+
+.portfolio .portfolio-wrap .portfolio-links .link-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    width: auto;
+    padding: 8px 14px;
+    font-size: 15px;
+    color: #333;
+    text-align: left;
+    white-space: nowrap;
+    background: none
+}
+
+.portfolio .portfolio-wrap .portfolio-links .link-dropdown-menu a i {
+    margin-right: 8px;
+    font-size: 20px
+}
+
+.portfolio .portfolio-wrap .portfolio-links .link-dropdown-menu a:hover {
+    color: #4cc90e;
+    background: #f1fbeb
+}
+
+/* 메뉴가 열린 동안은 마우스가 벗어나도 오버레이와 링크 바 유지 */
+.portfolio .portfolio-wrap.links-open::before {
+    opacity: 1
+}
+
+.portfolio .portfolio-wrap.links-open .portfolio-links {
+    bottom: 0
+}
+
 @media (max-width:768px) {
     .portfolio .gif {
         display: none

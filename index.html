@@ -575,7 +575,13 @@
                             <img src="assets/img/portfolio/cookOff.png" class="img-fluid" alt="Hollow Cook Off">
                             <div class="portfolio-links">
                                 <a href="https://www.youtube.com/watch?v=cNTTR39F9BM" class="venobox" data-vbtype="video" data-autoplay="true" target="_blank" rel="noopener"><i class="bx bx-search-alt"></i></a>
-                                <a href="https://store.steampowered.com/app/2640380/Hollow_Cook_Off/" target="_blank" rel="noopener"><i class="bx bx-link"></i></a>
+                                <div class="link-dropdown">
+                                    <button type="button" class="link-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Links"><i class="bx bx-link"></i></button>
+                                    <ul class="link-dropdown-menu">
+                                        <li><a href="https://store.steampowered.com/app/2640380/Hollow_Cook_Off/" target="_blank" rel="noopener"><i class="bx bx-store"></i> Steam</a></li>
+                                        <li><a href="https://github.com/Youngdu-Min/Hollow-CookOff-Codes" target="_blank" rel="noopener"><i class="bx bxl-github"></i> <span data-i18n="link.code">Code</span></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="portfolio-description">
@@ -1076,6 +1082,31 @@
             }
             initTyped();
             $(document).on('i18n:change', initTyped);
+
+            // 링크 드롭다운: 동영상·사진을 제외한 링크가 여러 개인 포트폴리오 항목
+            function closeLinkDropdowns() {
+                $('.link-dropdown.open').removeClass('open')
+                    .find('.link-dropdown-toggle').attr('aria-expanded', 'false');
+                $('.portfolio-wrap.links-open').removeClass('links-open');
+            }
+            $(document).on('click', '.link-dropdown-toggle', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var $dropdown = $(this).closest('.link-dropdown');
+                var willOpen = !$dropdown.hasClass('open');
+                closeLinkDropdowns();
+                if (willOpen) {
+                    $dropdown.addClass('open');
+                    $dropdown.closest('.portfolio-wrap').addClass('links-open');
+                    $(this).attr('aria-expanded', 'true');
+                }
+            });
+            $(document).on('click', function (e) {
+                if (!$(e.target).closest('.link-dropdown').length) closeLinkDropdowns();
+            });
+            $(document).on('keydown', function (e) {
+                if (e.key === 'Escape') closeLinkDropdowns();
+            });
 
             // VenoBox 초기화
             $('.venobox').venobox({
