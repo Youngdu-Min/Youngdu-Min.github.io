@@ -118,6 +118,8 @@
         'portfolio.filter.edtech': '에듀테크',
         'portfolio.filter.jam': '게임잼',
         'portfolio.divider': '<i class="bx bx-book-open"></i> 실무 프로젝트 · 에듀테크',
+        'portfolio.asymmetricPvP.desc': '5인 팀의 프로그래머로 참여한 백룸풍 1:3 비대칭 서바이벌 PvP입니다. FishNet 서버 판정 탈출 시스템(금속 조각 → 열쇠 → 탈출구), 플레이어가 조작하는 괴물의 돌진 공격, TargetRpc로 괴물에게만 보이는 생존자 경로, 시드만 동기화하는 절차적 2D 맵 생성(MST + 순환 경로, A* 통로, 막다른 길 정리, 검증·재시도)을 구현했습니다.',
+        'portfolio.procedural3DMap.desc': '같은 프로젝트의 2D 그리드 맵을 3D 모듈러 프리팹(바닥·벽·문틀·천장) 맵으로 베이크합니다. 호스트·클라이언트 결정적 배치, 맵 종류별 가중치 모듈 선택, Union-Find 연결성 보장, 모듈 규격 검증과 래퍼 프리팹 일괄 생성 에디터 툴, URP Render Graph 합성곱 포스트 프로세싱 필터를 구현했습니다.',
         'portfolio.projectFSMonsterAI.desc': '5인 팀의 프로그래머로 참여한 2D 탑다운 게임 프로토타입의 몬스터 AI입니다. 상태를 컴포넌트로 붙이는 모듈형 FSM에, 인스펙터에서 ‘조건 → 목표 상태’ 규칙을 정의하는 데이터 기반 전이, 시야·거리 감지, A* 경로 탐색, 비살상 제압(안정화) 시스템을 구현했습니다. 몬스터 3종은 같은 컴포넌트를 쓰고 전이 규칙만 다릅니다.',
         'portfolio.unitSystem.desc': '팀 프로젝트(중단) 안에서 혼자 설계해 모듈로 공개했습니다. ScriptableObject 프리셋 기반의 클래스형 FSM, 부위별 피격 판정, 상태 이상, 보스 페이즈 제어, Animator 없이 동작하는 애니메이션 컨트롤러를 갖췄습니다.',
         'portfolio.hollow.desc': 'Corgi Engine 기반 사이드 프로젝트(12개 스테이지 + 보스 스테이지 5개)입니다. 7인 팀에서 프로그래밍 전반을 담당하며, AI Brain에 보스 페이즈 관리와 State/Decision 추적·복구 기능을 확장해 일반 적 9종과 다단계 보스 5종의 AI를 만들었습니다. 탄 패링, 그래플링 건, 한/영 현지화, Timeline 컷신을 구현하고 Steam 출시 과정 전체를 담당했습니다.',
@@ -141,6 +143,8 @@
         'link.article': '관련 기사',
 
         'genre.sideScroller': '2D 액션 횡스크롤 · 사이드 프로젝트',
+        'genre.asymmetricPvP': '멀티플레이 · 팀 프로젝트 · 2026',
+        'genre.procedural3DMap': '3D 절차적 맵 · 팀 프로젝트 · 2026',
         'genre.projectFSMonsterAI': '몬스터 AI · 팀 프로젝트 · 2026',
         'genre.unitFramework': '재사용 가능한 유닛 프레임워크 · 2025',
         'genre.localMulti': '로컬 멀티플레이 액션',
