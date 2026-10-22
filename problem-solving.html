@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NK1M3DF2EM"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NK1M3DF2EM');</script>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Problem-Solving Notes - Youngdu Min</title>
+    <meta property='og:title' content="Problem-Solving Notes - Youngdu Min" />
+    <meta property='og:image' content="http://Youngdu-Min.github.io/assets/img/thumbnail.png" />
+    <meta property='og:description' content="How I designed the content core of an education app, cut build size by ~70%, and fixed WebGL and mobile memory problems." />
+    <meta property='og:url' content="Youngdu-Min.github.io/problem-solving.html" />
+    <meta property='og:type' content="article" />
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css?v=20261020" rel="stylesheet">
+
+    <style>
+        html:not([lang="ko"]) .ko-only {
+            display: none
+        }
+
+        .ps {
+            padding: 60px 0
+        }
+
+        .ps .container {
+            max-width: 920px
+        }
+
+        .ps-head h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #D5CED9;
+            margin-bottom: 12px
+        }
+
+        .ps-meta {
+            color: #9aa0ad;
+            font-size: 15px;
+            line-height: 1.7
+        }
+
+        .ps-toc {
+            margin: 24px 0 0;
+            padding: 18px 22px;
+            background: #292F3D;
+            border-radius: 6px
+        }
+
+        .ps-toc ol {
+            margin: 0;
+            padding-left: 20px
+        }
+
+        .ps-toc li {
+            margin: 4px 0
+        }
+
+        .ps-section {
+            margin-top: 40px;
+            padding: 28px 26px;
+            background: #292F3D;
+            border-radius: 6px;
+            scroll-margin-top: 20px
+        }
+
+        .ps-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #D5CED9;
+            line-height: 1.5;
+            margin-bottom: 14px
+        }
+
+        .ps-section h2 .ps-num {
+            color: #A74DED;
+            margin-right: 6px
+        }
+
+        .ps-context {
+            color: #9aa0ad;
+            font-size: 14px;
+            margin-bottom: 16px
+        }
+
+        .ps-diagram {
+            margin: 8px 0 22px;
+            padding: 16px;
+            background: #1d212b;
+            border-radius: 6px;
+            text-align: center
+        }
+
+        .ps-diagram svg {
+            max-width: 100%;
+            height: auto
+        }
+
+        .ps-section h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffc93c;
+            margin: 20px 0 8px
+        }
+
+        .ps-section ul {
+            padding-left: 20px;
+            margin-bottom: 0
+        }
+
+        .ps-section li {
+            line-height: 1.75;
+            margin-bottom: 6px
+        }
+
+        .ps-section strong {
+            color: #fff
+        }
+
+        .ps-back {
+            display: inline-block;
+            margin-top: 40px
+        }
+
+        .ps,
+        .ps-section li,
+        .ps-meta {
+            overflow-wrap: anywhere
+        }
+
+        @media (max-width: 575px) {
+            .ps {
+                padding: 40px 0
+            }
+
+            .ps .container {
+                padding-left: 16px;
+                padding-right: 16px
+            }
+
+            .ps-head h1 {
+                font-size: 26px
+            }
+
+            .ps-section {
+                padding: 20px 16px
+            }
+
+            .ps-section h2 {
+                font-size: 19px
+            }
+
+            .ps-diagram {
+                padding: 10px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ======= Mobile nav toggle button ======= -->
+    <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+    <!-- ======= Language switch ======= -->
+    <div class="lang-switch">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="ko">KO</button>
+    </div>
+
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="d-flex flex-column">
+
+            <div class="profile">
+                <img src="assets/img/profile_img.png" alt="" class="img-fluid rounded-circle">
+                <h1 class="text-light"><a href="index.html" data-i18n="profile.name">Youngdu</a></h1>
+                <h1 class="text-light en-only"><a href="index.html">Min</a></h1>
+                <div class="social-links mt-3 text-center">
+                    <a href="https://github.com/Youngdu-Min" target="_blank" rel="noopener" class="github"><i class="bx bxl-github"></i></a>
+                    <a href="https://www.linkedin.com/in/youngdu-min-985795187/" target="_blank" rel="noopener" class="linkedin">
+                        <i class="bx bxl-linkedin"></i>
+                    </a>
+                    <a href="https://youngdu.itch.io/" target="_blank" rel="noopener" class="itchio"><i class="bx bxs-home-heart"></i></a>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html#hero"><i class="bx bx-home"></i> <span data-i18n="nav.home">Home</span></a></li>
+                    <li><a href="index.html#about"><i class="bx bx-user"></i> <span data-i18n="nav.about">About</span></a></li>
+                    <li><a href="index.html#skills"><i class="bx bx-code"></i> <span data-i18n="nav.skills">Skills</span></a></li>
+                    <li><a href="index.html#resume"><i class="bx bx-file-blank"></i> <span data-i18n="nav.resume">Resume</span></a></li>
+                    <li><a href="index.html#portfolio"><i class="bx bx-book-content"></i> <span data-i18n="nav.portfolio">Portfolio</span></a></li>
+                    <li><a href="index.html#contact"><i class="bx bx-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
+                    <li class="active"><a href="problem-solving.html"><i class="bx bx-bug"></i> <span data-i18n="nav.problemSolving">Problem Solving</span></a></li>
+                    <li>
+                        <a href="assets/other/Youngdu_Min_Resume_EN.pdf" data-i18n-href="nav.downloadFile">
+                            <i class="bx bx-file"></i> <span data-i18n="nav.download">Download resume
+                            file</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav><!-- .nav-menu -->
+            <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+        </div>
+    </header><!-- End Header -->
+
+    <main id="main">
+        <section class="ps">
+            <div class="container">
+
+                <div class="ps-head">
+                    <h1><span class="ko-only">문제 해결 기록</span><span class="en-only">Problem-Solving Notes</span></h1>
+                    <p class="ps-meta ko-only">민영두 · Unity 클라이언트 프로그래머 · 셈웨어 "똑똑! 수학탐험대" (KERIS 디지털교과서 연계 수학 교육 앱, 전국 약 6,900개교 사용, iOS·Android·WebGL, 개발자 8명·인턴 포함 최대 12명)</p>
+                    <p class="ps-meta en-only">Youngdu Min · Unity client programmer · Cemware "ToctocMath" (KERIS digital-textbook-linked math education app, used by about 6,900 schools nationwide, iOS · Android · WebGL, 8 developers, up to 12 with interns)</p>
+
+                    <nav class="ps-toc">
+                        <ol>
+                            <li><a href="#core"><span class="ko-only">콘텐츠 75% 이상을 하나의 코어 위로</span><span class="en-only">Putting 75%+ of the content on one core</span></a></li>
+                            <li><a href="#build-process"><span class="ko-only">나 없이도 빌드가 되게</span><span class="en-only">Builds that don't depend on me</span></a></li>
+                            <li><a href="#build-size"><span class="ko-only">빌드 용량 약 70% 절감</span><span class="en-only">Cutting build size by about 70%</span></a></li>
+                            <li><a href="#webgl-memory"><span class="ko-only">학교 크롬북에서 멈추던 WebGL</span><span class="en-only">WebGL that froze school Chromebooks</span></a></li>
+                            <li><a href="#drawing-crash"><span class="ko-only">그리기 기능의 메모리 누적으로 인한 모바일 크래시</span><span class="en-only">Mobile crashes from memory piling up in the drawing feature</span></a></li>
+                            <li><a href="#texture-format"><span class="ko-only">PC와 모바일이 지원하는 텍스처 압축 포맷이 다른 WebGL 교구 서비스</span><span class="en-only">A WebGL teaching-aid service where PC and mobile support different texture formats</span></a></li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <!-- ======= 1. core ======= -->
+                <article class="ps-section" id="core">
+                    <h2><span class="ps-num">1.</span><span class="ko-only">콘텐츠 75% 이상을 하나의 코어 위로: 교육 콘텐츠 코어·베이스 스크립트 설계</span><span class="en-only">Putting 75%+ of the content on one core: designing the core/base scripts for educational content</span></h2>
+
+                    <div class="ps-diagram ko-only"><script type="text/plain" class="mmd">
+flowchart TB
+    subgraph CORE["콘텐츠 베이스 (추상 클래스) · 확정적으로 겹치는 흐름만"]
+        direction LR
+        A["문제 출제"] --> B["문제별 상호작용"] --> C["채점"] --> D["결과 저장"]
+    end
+    SO["ScriptableObject 설정"] --> X
+    X["개별 콘텐츠 (파생 클래스)"] -- "상속" --> CORE
+    X -. "인터페이스만 추가<br/>(통신부는 코어에 구현됨)" .-> M1["드래그 앤 드롭 모듈"]
+    X -. "인터페이스만 추가" .-> M2["그래프 모듈"]
+    L["기존 레거시 콘텐츠"] -- "베이스 상속 + 겹치는 코드 삭제" --> X
+</script></div>
+                    <div class="ps-diagram en-only"><script type="text/plain" class="mmd">
+flowchart TB
+    subgraph CORE["Content base (abstract class) · only the flow every piece shares"]
+        direction LR
+        A["Question"] --> B["Per-question interaction"] --> C["Grading"] --> D["Save results"]
+    end
+    SO["ScriptableObject settings"] --> X
+    X["Individual content (derived class)"] -- "inherits" --> CORE
+    X -. "adds an interface only<br/>(wiring already in the core)" .-> M1["Drag-and-drop module"]
+    X -. "adds an interface only" .-> M2["Graph module"]
+    L["Existing legacy content"] -- "inherit the base + delete duplicate code" --> X
+</script></div>
+
+                    <div class="ko-only">
+                        <h3>문제</h3>
+                        <ul>
+                            <li>2023·2024 대형 업데이트에서 개발자 8명이 동시에 새 콘텐츠를 만들어야 했다.</li>
+                            <li>교육 콘텐츠는 대부분 "문제 출제 → 문제별 상호작용 → 채점 → 결과 저장"이라는 같은 흐름을 갖는데, 기존 콘텐츠는 이 흐름을 콘텐츠마다 따로 들고 있었다.</li>
+                            <li>새 구조를 만들더라도 이미 서비스 중인 레거시 콘텐츠를 버릴 수는 없었다.</li>
+                        </ul>
+                        <h3>해결</h3>
+                        <ul>
+                            <li><strong>추상 클래스에는 확정적으로 겹치는 흐름만 넣었다.</strong> 출제·채점·저장처럼 모든 콘텐츠가 똑같이 거치는 단계만 베이스가 맡고, 콘텐츠마다 다른 "문제별 상호작용"은 파생 클래스가 구현한다.</li>
+                            <li><strong>선택 기능은 인터페이스로 붙이게 했다.</strong> 드래그 앤 드롭, 그래프처럼 일부 콘텐츠만 쓰는 기능은 파생 클래스에 인터페이스를 추가하는 방식으로 조합한다. 인터페이스와 코어 사이의 통신 부분은 미리 구현해 두어서, 콘텐츠 개발자는 원하는 인터페이스를 붙이기만 하면 동작한다.</li>
+                            <li><strong>설정값은 ScriptableObject로 분리했다.</strong> 코드를 고치지 않고 콘텐츠를 조정할 수 있다.</li>
+                            <li><strong>레거시 호환을 설계 조건으로 두었다.</strong> 기존 콘텐츠는 베이스를 상속받고, 베이스와 겹치는 코드를 지우는 것만으로 새 구조로 옮겨진다.</li>
+                            <li><strong>사용법은 Slack 고정 공지로, 복잡한 내용은 Notion 문서로 공유했다.</strong> 내 파트를 만들면서 코어에 필요한 개선점을 찾으면 코어에 반영해 유지보수했고, 여러 콘텐츠에서 쓰이는 교육 실습 상호작용(드래그 앤 드롭, 그래프 등)은 공용 모듈로 분리했다.</li>
+                        </ul>
+                        <h3>왜 추상 클래스와 인터페이스를 나눴나</h3>
+                        <ul>
+                            <li>베이스에 "아마 공통일 것 같은" 기능까지 넣으면, 그 기능이 필요 없는 콘텐츠도 베이스를 따라야 하고 예외 처리가 베이스에 쌓인다.</li>
+                            <li>그래서 베이스에는 바뀌지 않을 흐름만 두고, 바뀌거나 선택적인 기능은 인터페이스로 빼서 콘텐츠가 필요한 것만 고르게 했다.</li>
+                        </ul>
+                        <h3>결과</h3>
+                        <ul>
+                            <li>독립적으로 구현된 콘텐츠를 제외한 약 75% 이상의 콘텐츠가 이 코어 위로 옮겨지거나 새로 개발됐다.</li>
+                            <li>팀원들이 베이스를 파생해 각자 콘텐츠를 개발했고, 공통 상호작용은 모듈을 가져다 쓰는 방식으로 정리됐다.</li>
+                        </ul>
+                    </div>
+                    <div class="en-only">
+                        <h3>Problem</h3>
+                        <ul>
+                            <li>In the 2023 and 2024 major updates, eight developers had to build new content at the same time.</li>
+                            <li>Most educational content follows the same flow (question → per-question interaction → grading → saving results), but each existing piece carried its own copy of that flow.</li>
+                            <li>Even with a new structure, we couldn't throw away the legacy content that was already live.</li>
+                        </ul>
+                        <h3>Solution</h3>
+                        <ul>
+                            <li><strong>The abstract class holds only the flow that is certain to be shared.</strong> The base handles the steps every piece goes through the same way, such as question, grading and saving, while each derived class implements its own per-question interaction.</li>
+                            <li><strong>Optional features attach through interfaces.</strong> Features only some content needs, like drag-and-drop or graphs, are composed by adding an interface to the derived class. The wiring between those interfaces and the core was already in place, so a content developer just adds the interface they need and it works.</li>
+                            <li><strong>Settings live in ScriptableObjects.</strong> Content can be tuned without touching code.</li>
+                            <li><strong>Legacy compatibility was a design requirement.</strong> Existing content moves to the new structure just by inheriting the base and deleting the code that overlaps with it.</li>
+                            <li><strong>Usage went into a pinned Slack post, and the details into Notion.</strong> While building my own part, I fed improvements the core needed back into it, and split educational interactions used across many pieces (drag-and-drop, graphs, etc.) into shared modules.</li>
+                        </ul>
+                        <h3>Why split abstract classes and interfaces</h3>
+                        <ul>
+                            <li>If the base also takes on features that are "probably shared," content that doesn't need them still has to follow the base, and exception handling piles up inside it.</li>
+                            <li>So the base keeps only the flow that won't change, and anything that changes or is optional moves into an interface, letting each piece pick only what it needs.</li>
+                        </ul>
+                        <h3>Result</h3>
+                        <ul>
+                            <li>About 75%+ of the content, excluding independently built pieces, was migrated onto this core or newly built on it.</li>
+                            <li>Teammates built their content by deriving from the base, and shared interactions were handled by pulling in modules.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- ======= 2. build-process ======= -->
+                <article class="ps-section" id="build-process">
+                    <h2><span class="ps-num">2.</span><span class="ko-only">나 없이도 빌드가 되게: 빌드·배포 절차 문서화와 자동화</span><span class="en-only">Builds that don't depend on me: documenting and automating the build and release process</span></h2>
+
+                    <div class="ps-diagram ko-only"><script type="text/plain" class="mmd">
+flowchart LR
+    T["단순 txt 빌드 절차"] --> N["Notion 체크리스트<br/>(체크박스 · 접기 구조)"]
+    N --> S["자동화 가능한 단계 → bat 스크립트"]
+    N --> U["빌드 전 확인 파일 모아 보기<br/>(Unity 에디터 툴)"]
+    S --> R["다른 팀원도 문서만 따라 빌드·배포"]
+    U --> R
+</script></div>
+                    <div class="ps-diagram en-only"><script type="text/plain" class="mmd">
+flowchart LR
+    T["Plain-text build steps"] --> N["Notion checklist<br/>(checkboxes · collapsible)"]
+    N --> S["Automatable steps → batch scripts"]
+    N --> U["Pre-build files in one view<br/>(Unity editor tool)"]
+    S --> R["Teammates build and release<br/>by following the doc"]
+    U --> R
+</script></div>
+
+                    <div class="ko-only">
+                        <h3>문제</h3>
+                        <ul>
+                            <li>iOS·Android·WebGL 세 플랫폼의 빌드·심사·배포 절차가 단순 txt 파일로만 남아 있었다.</li>
+                            <li>절차를 아는 사람이 없으면 빌드가 막히는 구조였다.</li>
+                        </ul>
+                        <h3>해결</h3>
+                        <ul>
+                            <li>빌드 절차를 Notion 문서로 다시 정리했다. 단계마다 체크박스를 두고, 세부 내용은 접었다 펼칠 수 있게 만들었다.</li>
+                            <li>자동화할 수 있는 단계는 bat 스크립트로 만들었다.</li>
+                            <li>빌드 전에 확인해야 하는 파일을 한곳에 모아 볼 수 있는 Unity 에디터 툴을 만들었다.</li>
+                        </ul>
+                        <h3>결과</h3>
+                        <ul>
+                            <li>다른 팀원들도 내 도움 없이 문서를 따라 빌드·배포를 진행할 수 있게 됐다.</li>
+                        </ul>
+                    </div>
+                    <div class="en-only">
+                        <h3>Problem</h3>
+                        <ul>
+                            <li>The build, review and release steps for iOS, Android and WebGL existed only as a plain text file.</li>
+                            <li>If the person who knew the steps wasn't around, builds stalled.</li>
+                        </ul>
+                        <h3>Solution</h3>
+                        <ul>
+                            <li>Rewrote the build procedure as a Notion document, with a checkbox for each step and collapsible details.</li>
+                            <li>Turned the steps that could be automated into batch scripts.</li>
+                            <li>Built a Unity editor tool that gathers the files to check before a build in one place.</li>
+                        </ul>
+                        <h3>Result</h3>
+                        <ul>
+                            <li>Other teammates could build and release on their own by following the document.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- ======= 3. build-size ======= -->
+                <article class="ps-section" id="build-size">
+                    <h2><span class="ps-num">3.</span><span class="ko-only">빌드 용량 약 70% 절감 (1GB 이상 → 350MB 이하)</span><span class="en-only">Cutting build size by about 70% (1 GB+ → under 350 MB)</span></h2>
+
+                    <div class="ps-diagram ko-only"><script type="text/plain" class="mmd">
+flowchart LR
+    A["1GB 이상"] --> B["범용 슬라이싱 UI 이미지로<br/>대체 가능한 에셋 교체"]
+    B --> C["미사용 에셋 정리"]
+    C --> D["이미지 크기를 4의 배수로 맞추는<br/>에디터 툴 → 텍스처 압축 일괄 적용"]
+    D --> E["350MB 이하"]
+</script></div>
+                    <div class="ps-diagram en-only"><script type="text/plain" class="mmd">
+flowchart LR
+    A["1 GB+"] --> B["Replace assets a generic<br/>sliced UI image can cover"]
+    B --> C["Remove unused assets"]
+    C --> D["Editor tool that resizes images to<br/>multiples of 4 → batch texture compression"]
+    D --> E["Under 350 MB"]
+</script></div>
+
+                    <div class="ko-only">
+                        <h3>문제</h3>
+                        <ul>
+                            <li>이미지 리소스가 많아 앱 용량이 1GB를 넘었다.</li>
+                            <li>압축 포맷을 적용하려면 이미지마다 크기를 4의 배수로 맞추는 반복 작업이 필요했다.</li>
+                        </ul>
+                        <h3>해결</h3>
+                        <ul>
+                            <li>먼저 범용 슬라이싱 UI 이미지로 대체할 수 있는 에셋을 교체하고, 사용하지 않는 에셋을 정리해 리소스 수 자체를 줄였다.</li>
+                            <li>이미지 크기를 4의 배수로 맞추는 에디터 툴을 만들어 텍스처 압축을 일괄 적용했다.</li>
+                            <li>대부분 슬라이싱 스프라이트라 크기 조정에 따른 품질 문제가 거의 없었다.</li>
+                        </ul>
+                        <h3>결과</h3>
+                        <ul>
+                            <li>전 플랫폼 빌드 용량 1GB 이상 → 350MB 이하 (약 70% 절감)</li>
+                        </ul>
+                    </div>
+                    <div class="en-only">
+                        <h3>Problem</h3>
+                        <ul>
+                            <li>With so many image resources, the app was over 1 GB.</li>
+                            <li>Applying compressed formats meant resizing every image to multiples of 4, a repetitive manual job.</li>
+                        </ul>
+                        <h3>Solution</h3>
+                        <ul>
+                            <li>First replaced assets that a generic sliced UI image could cover and removed unused ones, cutting the number of resources itself.</li>
+                            <li>Built an editor tool that resizes images to multiples of 4, then applied texture compression in bulk.</li>
+                            <li>Since most of them were sliced sprites, resizing caused almost no quality issues.</li>
+                        </ul>
+                        <h3>Result</h3>
+                        <ul>
+                            <li>Build size across all platforms: over 1 GB → under 350 MB (about 70% smaller)</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- ======= 4. webgl-memory ======= -->
+                <article class="ps-section" id="webgl-memory">
+                    <h2><span class="ps-num">4.</span><span class="ko-only">학교 크롬북에서 멈추던 WebGL: 탭당 2GB 가까운 메모리 최적화</span><span class="en-only">WebGL that froze school Chromebooks: optimizing memory that neared 2 GB per tab</span></h2>
+
+                    <div class="ps-diagram ko-only"><script type="text/plain" class="mmd">
+flowchart LR
+    A["WebGL 탭 1개 ≈ 2GB"] --> B["저사양 크롬북·웨일북에서<br/>탭 여러 개 → 브라우저 멈춤"]
+    B --> C["Addressables 등으로<br/>필요한 리소스만 로드·해제"]
+    B --> D["운영: 여러 탭 사용 자제 공지"]
+    C --> E["이후 메모리 초과 보고 없음"]
+    D --> E
+</script></div>
+                    <div class="ps-diagram en-only"><script type="text/plain" class="mmd">
+flowchart LR
+    A["1 WebGL tab ≈ 2 GB"] --> B["Several tabs on low-end<br/>Chromebooks/Whalebooks → browser freezes"]
+    B --> C["Load and release only what's needed<br/>with Addressables, etc."]
+    B --> D["Operations: notice asking users<br/>not to open multiple tabs"]
+    C --> E["No memory-overrun reports since"]
+    D --> E
+</script></div>
+
+                    <div class="ko-only">
+                        <h3>문제</h3>
+                        <ul>
+                            <li>WebGL 탭 하나가 메모리를 2GB 가까이 사용했다.</li>
+                            <li>학교에서 주로 쓰는 저사양 크롬북·웨일북에서 탭을 여러 개 열면 브라우저가 멈췄다.</li>
+                        </ul>
+                        <h3>해결</h3>
+                        <ul>
+                            <li>Addressables 등으로 필요한 리소스만 불러오고 해제하도록 메모리를 최적화했다.</li>
+                            <li>운영 측면에서는 서비스를 여러 탭으로 열지 않도록 공지했다.</li>
+                        </ul>
+                        <h3>결과</h3>
+                        <ul>
+                            <li>이후 메모리 초과 문제가 개발팀에 다시 보고되지 않았다.</li>
+                        </ul>
+                    </div>
+                    <div class="en-only">
+                        <h3>Problem</h3>
+                        <ul>
+                            <li>A single WebGL tab used close to 2 GB of memory.</li>
+                            <li>On the low-end Chromebooks and Whalebooks common in schools, opening several tabs froze the browser.</li>
+                        </ul>
+                        <h3>Solution</h3>
+                        <ul>
+                            <li>Optimized memory so only the resources needed are loaded and then released, using Addressables among other things.</li>
+                            <li>On the operations side, posted a notice asking users not to open the service in multiple tabs.</li>
+                        </ul>
+                        <h3>Result</h3>
+                        <ul>
+                            <li>No memory-overrun problems were reported to the development team after that.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- ======= 5. drawing-crash ======= -->
+                <article class="ps-section" id="drawing-crash">
+                    <h2><span class="ps-num">5.</span><span class="ko-only">그리기 기능의 메모리 누적으로 인한 모바일 크래시</span><span class="en-only">Mobile crashes from memory piling up in the drawing feature</span></h2>
+
+                    <div class="ps-diagram ko-only"><script type="text/plain" class="mmd">
+flowchart LR
+    subgraph BEFORE["전"]
+        A1["획 1"] --> S1["전체 화면 복사본 1"]
+        A2["획 2"] --> S2["전체 화면 복사본 2"]
+        A3["획 N"] --> S3["전체 화면 복사본 N"]
+        S3 --> X["메모리 계속 증가 → 앱 종료"]
+    end
+    subgraph AFTER["후"]
+        B1["획"] --> C["캐시된 화면 데이터 갱신"]
+    end
+</script></div>
+                    <div class="ps-diagram en-only"><script type="text/plain" class="mmd">
+flowchart LR
+    subgraph BEFORE["Before"]
+        A1["Stroke 1"] --> S1["Full-screen copy 1"]
+        A2["Stroke 2"] --> S2["Full-screen copy 2"]
+        A3["Stroke N"] --> S3["Full-screen copy N"]
+        S3 --> X["Memory keeps growing → app quits"]
+    end
+    subgraph AFTER["After"]
+        B1["Stroke"] --> C["Update cached screen data"]
+    end
+</script></div>
+
+                    <div class="ko-only">
+                        <h3>문제</h3>
+                        <ul>
+                            <li>그리기 기능이 획을 그릴 때마다 전체 화면을 스택에 새로 쌓았다.</li>
+                            <li>메모리가 계속 늘다가 앱이 종료됐고, 메모리가 적은 모바일 기기에서 주로 발생했다.</li>
+                        </ul>
+                        <h3>해결</h3>
+                        <ul>
+                            <li>화면 데이터를 캐싱해 두고 갱신하는 방식으로 재설계했다.</li>
+                        </ul>
+                        <h3>결과</h3>
+                        <ul>
+                            <li>메모리 누적과 크래시를 해결했다.</li>
+                        </ul>
+                    </div>
+                    <div class="en-only">
+                        <h3>Problem</h3>
+                        <ul>
+                            <li>The drawing feature pushed a new full-screen copy onto a stack with every stroke.</li>
+                            <li>Memory kept growing until the app quit, mostly on mobile devices with little memory.</li>
+                        </ul>
+                        <h3>Solution</h3>
+                        <ul>
+                            <li>Redesigned it to cache the screen data and update it in place.</li>
+                        </ul>
+                        <h3>Result</h3>
+                        <ul>
+                            <li>Fixed both the memory buildup and the crashes.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- ======= 6. texture-format ======= -->
+                <article class="ps-section" id="texture-format">
+                    <h2><span class="ps-num">6.</span><span class="ko-only">PC와 모바일이 지원하는 텍스처 압축 포맷이 다른 WebGL 교구 서비스</span><span class="en-only">A WebGL teaching-aid service where PC and mobile support different texture compression formats</span></h2>
+                    <p class="ps-context ko-only">교육 기업 납품 교구 WebGL 서비스 · 3인(선임 2명과 함께) · 2025.01 – 03 · 기존 커스텀 UI 환경으로 교구 10종 이상을 UI 이벤트·인터랙션으로 구현</p>
+                    <p class="ps-context en-only">WebGL teaching-aid service delivered to an education company · team of 3 (with 2 senior developers) · 2025.01 – 03 · Built 10+ teaching aids with UI events and interactions on an existing custom UI framework</p>
+
+                    <div class="ps-diagram ko-only"><script type="text/plain" class="mmd">
+flowchart LR
+    A["브라우저에서 교구 실행"] --> B{"JavaScript로<br/>접속 기기 판별"}
+    B -- "PC" --> C["PC용 압축 포맷<br/>AssetBundle"]
+    B -- "모바일" --> D["모바일용 압축 포맷<br/>AssetBundle"]
+    C --> E["같은 교구를 PC·모바일 웹에서 실행"]
+    D --> E
+</script></div>
+                    <div class="ps-diagram en-only"><script type="text/plain" class="mmd">
+flowchart LR
+    A["Launch a teaching aid<br/>in the browser"] --> B{"Detect the device<br/>with JavaScript"}
+    B -- "PC" --> C["AssetBundle in<br/>PC compression format"]
+    B -- "Mobile" --> D["AssetBundle in<br/>mobile compression format"]
+    C --> E["Same teaching aid runs<br/>on PC and mobile web"]
+    D --> E
+</script></div>
+
+                    <div class="ko-only">
+                        <h3>문제</h3>
+                        <ul>
+                            <li>PC와 모바일 GPU가 지원하는 텍스처 압축 포맷이 다르다.</li>
+                            <li>한 포맷으로만 만들면, 그 포맷을 지원하지 않는 기기에서는 텍스처를 런타임에 풀어 올려야 해서 메모리와 로딩 부담이 커진다.</li>
+                        </ul>
+                        <h3>해결</h3>
+                        <ul>
+                            <li>처음에는 Unity 공식 방식대로 압축 포맷별로 빌드를 나누고, index.html에서 JavaScript로 맞는 빌드를 고르게 구현했다.</li>
+                            <li>이후 선임 요청으로, JavaScript가 접속 기기를 판별하고 기기에 맞는 포맷의 AssetBundle을 불러오는 방식으로 바꿨다.</li>
+                            <li>플랫폼별 셰이더도 함께 대응했다.</li>
+                            <li>WebGL은 실행 중 해상도가 바뀔 수 있어, 필요한 교구에는 해상도 변경 콜백을 연결했다.</li>
+                        </ul>
+                        <h3>결과</h3>
+                        <ul>
+                            <li>하나의 WebGL 서비스로 PC와 모바일 웹 모두에서 쓰는 교구를 납품했다.</li>
+                        </ul>
+                    </div>
+                    <div class="en-only">
+                        <h3>Problem</h3>
+                        <ul>
+                            <li>PC and mobile GPUs support different texture compression formats.</li>
+                            <li>Shipping a single format means devices that don't support it have to decompress textures at runtime, which costs memory and loading time.</li>
+                        </ul>
+                        <h3>Solution</h3>
+                        <ul>
+                            <li>At first I followed Unity's official approach: separate builds per compression format, with JavaScript in index.html picking the right one.</li>
+                            <li>Later, at a senior developer's request, I switched to having JavaScript detect the device and load AssetBundles in the matching format.</li>
+                            <li>Also handled platform-specific shaders.</li>
+                            <li>Because WebGL resolution can change at runtime, I hooked up a resolution-change callback for the teaching aids that needed it.</li>
+                        </ul>
+                        <h3>Result</h3>
+                        <ul>
+                            <li>Delivered teaching aids that run on both PC and mobile web from a single WebGL service.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <a class="ps-back" href="index.html#portfolio"><span class="ko-only">← 포트폴리오로 돌아가기</span><span class="en-only">← Back to portfolio</span></a>
+
+            </div>
+        </section>
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <span data-i18n="footer.madeBy">Website was made by me:</span> <span class="yellow"> <b data-i18n="footer.name">Youngdu Min</b> </span>
+                <span data-i18n="footer.designedBy">Originally designed by</span> <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a>
+            </div>
+        </div>
+    </footer><!-- End  Footer -->
+
+    <script src="assets/js/i18n.js?v=20261022c"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+    <script>
+        (function () {
+            // i18n.js는 이력서 페이지 제목을 쓰므로 이 페이지 제목으로 덮어쓴다
+            var TITLES = { en: 'Problem-Solving Notes - Youngdu Min', ko: '문제 해결 기록 - 민영두' };
+            function applyTitle() {
+                document.title = document.documentElement.getAttribute('lang') === 'ko' ? TITLES.ko : TITLES.en;
+            }
+            applyTitle();
+            document.addEventListener('i18n:change', applyTitle);
+
+            // 모바일 내비게이션 열기/닫기
+            var toggles = document.querySelectorAll('.mobile-nav-toggle');
+            function setNav(open) {
+                document.body.classList.toggle('mobile-nav-active', open);
+                toggles.forEach(function (button) {
+                    var icon = button.querySelector('i');
+                    icon.classList.toggle('icofont-navigation-menu', !open);
+                    icon.classList.toggle('icofont-close', open);
+                });
+            }
+            toggles.forEach(function (button) {
+                button.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    setNav(!document.body.classList.contains('mobile-nav-active'));
+                });
+            });
+            document.addEventListener('click', function (e) {
+                if (document.body.classList.contains('mobile-nav-active') && !e.target.closest('#header')) setNav(false);
+            });
+
+            // 숨겨진 언어의 그림도 크기가 맞게 그려지도록 mermaid.render로 미리 SVG를 만든다
+            mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'strict',
+                theme: 'base',
+                fontFamily: '"Nanum Gothic", sans-serif',
+                flowchart: { htmlLabels: true, useMaxWidth: true },
+                themeVariables: {
+                    background: '#1d212b',
+                    primaryColor: '#2e3446',
+                    primaryTextColor: '#E6E1EA',
+                    primaryBorderColor: '#A74DED',
+                    secondaryColor: '#2e3446',
+                    tertiaryColor: '#262b38',
+                    lineColor: '#9aa0ad',
+                    textColor: '#E6E1EA',
+                    clusterBkg: '#262b38',
+                    clusterBorder: '#5f6167',
+                    edgeLabelBackground: '#1d212b',
+                    fontSize: '14px'
+                }
+            });
+            var sources = Array.prototype.slice.call(document.querySelectorAll('script.mmd'));
+            function renderAll() {
+                // 순서대로 그려야 mermaid 내부 임시 요소가 서로 겹치지 않는다
+                return sources.reduce(function (chain, source, i) {
+                    return chain.then(function () {
+                        var holder = source.parentNode;
+                        return mermaid.render('ps-mmd-' + i, source.textContent.trim()).then(function (result) {
+                            holder.innerHTML = result.svg;
+                        }).catch(function (err) {
+                            holder.textContent = 'Diagram failed to render.';
+                            console.error(err);
+                        });
+                    });
+                }, Promise.resolve());
+            }
+            // 웹폰트가 로드되기 전에 글자 폭을 재면 라벨 끝이 잘리므로 폰트 로드 후 그린다
+            var fontsReady = document.fonts
+                ? Promise.all([
+                    document.fonts.load('400 14px "Nanum Gothic"', '가'),
+                    document.fonts.load('700 14px "Nanum Gothic"', '가')
+                ]).then(function () { return document.fonts.ready; })
+                : Promise.resolve();
+            fontsReady.catch(function () { }).then(renderAll);
+        })();
+    </script>
+
+</body>
+
+</html>

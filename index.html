@@ -94,6 +94,7 @@
                     <li><a href="#resume"><i class="bx bx-file-blank"></i> <span data-i18n="nav.resume">Resume</span></a></li>
                     <li><a href="#portfolio"><i class="bx bx-book-content"></i> <span data-i18n="nav.portfolio">Portfolio</span></a></li>
                     <li><a href="#contact"><i class="bx bx-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
+                    <li><a href="problem-solving.html"><i class="bx bx-bug"></i> <span data-i18n="nav.problemSolving">Problem Solving</span></a></li>
                     <li>
                         <a href="assets/other/Youngdu_Min_Resume_EN.pdf" data-i18n-href="nav.downloadFile">
                             <i class="bx bx-file"></i> <span data-i18n="nav.download">Download resume
@@ -209,7 +210,7 @@
                             <span class="yellow" data-i18n="about.heading">About myself</span>
                         </h3>
                         <p data-i18n="about.desc">
-                            Unity client programmer with 3 years of professional experience, including about 2 years running an education app as a live service on iOS, Android and WebGL, focused on optimization and release. Shipped 5+ games as side projects, including a Steam title where I was lead programmer handling overall programming on a team of 7.
+                            Unity client programmer with 3 years of experience. On "ToctocMath," used by about 6,900 schools, I designed the core/base scripts the team built its content on during major updates and cut build size by ~70%. I also shipped a Steam title as lead programmer of a 7-person team and now build multiplayer games on a 5-person indie team.
                         </p>
                     </div>
 
@@ -352,7 +353,7 @@
                             <li data-i18n="skills.i.testing">Test case design &amp; cross-checking, ISTQB CTFL</li>
                             <li data-i18n="skills.i.git">Git (led team workflow), dev manuals</li>
                             <li>Jira, Trello, Notion, Obsidian, Figma, Adobe XD, Slack</li>
-                            <li data-i18n="skills.i.ai_dev">AI-assisted development (Claude Code) with manual verification</li>
+                            <li data-i18n="skills.i.ai_dev">AI-assisted development: Claude Code with plan-first review and approval, using references I choose</li>
                         </ul>
                     </div>
                 </div>
@@ -513,15 +514,18 @@
                                     <h5 data-i18n="resume.cemware.period">2022.08 – 2025.07 (3 years)</h5>
                                     <p><em data-i18n="resume.cemware.company">Cemware</em></p>
                                     <ul>
+                                        <li data-i18n="resume.cemware.core">Designed the core/base scripts for the content flow (question → interaction → grading → saving) in the major updates; 75%+ of content, all but standalone pieces, was built or migrated onto them. Legacy content migrated by inheriting the base and deleting duplicate code; shared interactions (drag-and-drop, graphs) became modules.</li>
                                         <li data-i18n="resume.cemware.item1">Contributed to 167% YoY growth in downloads by improving the service around teachers' needs and optimizing app size and performance (used by ~6,900 schools).</li>
-                                        <li data-i18n="resume.cemware.miniGames">Built 8+ casual educational mini-games and reworked most existing ones for curriculum changes and live issues, using a shared architecture of abstract classes and interface-based composition with data-driven settings.</li>
+                                        <li data-i18n="resume.cemware.miniGames">Built 8+ casual educational mini-games and reworked most existing ones for curriculum changes and live issues.</li>
                                         <li data-i18n="resume.cemware.item2">Cut build size from over 1 GB to under 350 MB (~70%) across all platforms by replacing assets with reusable sliced UI sprites, removing unused assets, and building an editor tool that resizes textures to multiples of 4 for batch compression.</li>
-                                        <li data-i18n="resume.cemware.item3">Reduced WebGL initial-load memory and fixed memory leaks; resolved WebGL loading failures on Chromebooks and Whalebooks used in schools; raised Android min API level based on OS-version user analysis.</li>
+                                        <li data-i18n="resume.cemware.webglMemory">Optimized WebGL memory (nearly 2 GB per tab) that froze low-end school Chromebooks and Whalebooks when several tabs were open, using Addressables among other fixes; no further memory-overrun reports.</li>
+                                        <li data-i18n="resume.cemware.drawing">Redesigned a drawing feature that stacked a full-screen copy on every stroke into a cache-and-update structure, fixing mobile crashes.</li>
                                         <li data-i18n="resume.cemware.item4">Integrated LMS embedding and AI backend communication (learning analytics, problem recommendation).</li>
-                                        <li data-i18n="resume.cemware.item5">Refactored legacy code into modular, reusable components and built editor tools (CSV export for reports, prefab finder by root/component).</li>
-                                        <li data-i18n="resume.cemware.item6">Led Git workflow and releases: App Store / Google Play build, review and release; WebGL verified on a test server before CDN deployment.</li>
+                                        <li data-i18n="resume.cemware.item6">Led Git workflow and releases: App Store / Google Play build, review and release; WebGL verified on a test server before CDN deployment. Turned a plain-text build procedure into a Notion checklist teammates could follow on their own, and automated steps with batch scripts and a build-check editor tool.</li>
+                                        <li data-i18n="resume.cemware.tools">Built editor tools (CSV export for reports, prefab finder by root/component); raised Android min API level based on OS-version user analysis.</li>
                                         <li data-i18n="resume.cemware.item7">Built AR/VR interactive content with AR Foundation, VRTK and MRTK2, with WebGL ↔ JavaScript JSON interop for save/load and UGC support.</li>
                                         <li data-i18n="resume.cemware.item8">Implemented UI interaction and simulation logic for a client's pump-simulation software (2-person team).</li>
+                                        <li data-i18n="resume.cemware.teachingAids">Built 10+ interactive teaching aids for a client's WebGL service (team of 3, Jan – Mar 2025) on an existing custom UI framework; detected PC vs. mobile in JavaScript to load AssetBundles in the texture-compression format each device supports.</li>
 
                                     </ul>
                                 </div>
@@ -835,7 +839,7 @@
                                 <span class="tag-badge tag-platform">WebGL</span>
                             </div>
                             <h5><span data-i18n="genre.mathEdu">Math Education</span> · 2023.08 – 2025.07</h5>
-                            <p data-i18n="portfolio.toctoc.desc">KERIS digital-textbook-linked math app used by about 6,900 schools nationwide (as of Nov 2025), on iOS, Android and WebGL. Team of 8 developers (up to 12 with interns), lead programmer. Built 8+ casual educational mini-games, contributed to 167% YoY download growth, and cut build size from 1 GB+ to under 350 MB (~70%).</p>
+                            <p data-i18n="portfolio.toctoc.desc">KERIS digital-textbook-linked math app used by about 6,900 schools nationwide (as of Nov 2025), on iOS, Android and WebGL. Team of 8 developers (up to 12 with interns), lead programmer. Designed the core/base scripts that 75%+ of the content was built on, contributed to 167% YoY download growth, and cut build size from 1 GB+ to under 350 MB (~70%). <a href="problem-solving.html#core">Problem solving →</a></p>
                         </div>
                     </div>
 
@@ -1130,7 +1134,7 @@
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/js/coolBack.js"></script>
     <script src="assets/js/timecounter.js"></script>
-    <script src="assets/js/i18n.js?v=20261022b"></script>
+    <script src="assets/js/i18n.js?v=20261022c"></script>
 
     <!-- Portfolio Filter Script -->
     <script>
